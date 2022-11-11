@@ -1,0 +1,152 @@
+$clr-neon: hsl(317 100% 54%);
+$clr-bg: hsl(323 21% 16%);
+$main-color: rgb(0, 255, 225);
+$bg-color: green;
+$error-color: rgb(255, 23, 120);
+
+.neon-btn {
+    color: $clr-neon;
+    font-size: 1.1rem;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: $primary-color;
+    border: $clr-neon 0.125em solid;
+    padding: 0.25em 1em;
+    border-radius: 0.25em;
+    position: relative;
+
+    text-shadow: 0em 0em 0.125em hsla(0 0% 100% / 0.4), 0em 0em 0.25em $primary-color;
+    box-shadow: inset 0em 0em 1em 0 $clr-neon, 0em 0em 1em 0 $clr-neon;
+
+    transition: background-color 100ms linear;
+
+    &::before {
+        pointer-events: none;
+        content: "";
+        position: absolute;
+        background: $clr-neon;
+        top: 120%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        transform: perspective(4em) rotateX(40deg) scale(1, 0.35);
+        filter: blur(1em);
+        opacity: 0.7em;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0em 0em 2em 0.5em $clr-neon;
+        opacity: 0;
+        transition: opacity 100ms linear;
+    }
+
+    &:hover,
+    &:focus {
+        background: $clr-neon;
+        color: $clr-bg;
+        text-shadow: none;
+    }
+
+    &:hover::before,
+    &:focus::before {
+        opacity: 1;
+    }
+
+    &:hover::after,
+    &:focus::after {
+        opacity: 1;
+    }
+}
+
+
+
+input {
+    color: rgb(32, 0, 79);
+    font-size: 1.1rem;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: $main-color;
+    border: $main-color 0.125em solid;
+    padding: 0.25em 1em;
+    border-radius: 0.25em;
+    position: relative;
+    
+    text-shadow: 0em 0em 0.125em hsla(0 0% 100% / 0.4), 0em 0em 0.25em $main-color;
+    box-shadow: inset 0em 0em 1em 0 rgb(5, 2, 52), 0em 0em 0.5em 0 $main-color;
+    
+    transition: background-color 100ms linear;
+    
+    &::before {
+        content: "";
+        position: absolute;
+        background: $main-color;
+        top: 120%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    
+        transform: perspective(4em) rotateX(40deg) scale(1, 0.35);
+        filter: blur(1em);
+        opacity: 0.4em;
+    }
+    
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0em 0em 2em 0.5em $main-color;
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 100ms linear;
+    }
+
+    &[required]:invalid {
+        background-color: $error-color;
+        border: $error-color 0.125em solid;
+        text-shadow: none;
+        box-shadow: inset 0em 0em 1em 0 rgb(5, 2, 52), 0em 0em 0.5em 0 $error-color;
+
+        &:hover,
+        &:focus {
+            box-shadow: inset 0em 0em 1em 0 rgb(5, 2, 52), 0em 0em 1em 0 $error-color;
+        }
+
+    }
+    
+    &:hover,
+    &:focus {
+        background: $main-color;
+        color: rgb(32, 0, 79);
+        text-shadow: none;
+        box-shadow: inset 0em 0em 1em 0 rgb(5, 2, 52), 0em 0em 1em 0 $main-color;
+        opacity: 1;
+        transform: scale(1.02);
+    }
+
+
+    
+    &:hover::before,
+    &:focus::before {
+        opacity: 1;
+    }
+    
+    &:hover::after,
+    &:focus::after {
+        opacity: 1;
+    }
+}
+
+

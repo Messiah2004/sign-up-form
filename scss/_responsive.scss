@@ -1,0 +1,16 @@
+@mixin mobile {
+    @media screen and (max-width: 600px) {
+        @content;
+    }
+};
+
+
+@include mobile {
+    .main__image-box { 
+        background: none;
+    }
+
+    .main__form-box header {
+        background: url(../imgs/pinkandblue.jpg) center/cover no-repeat;
+    }
+};

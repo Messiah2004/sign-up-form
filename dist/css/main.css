@@ -1,0 +1,262 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Playfair Display", sans-serif, serif;
+}
+
+.neon-btn {
+  color: hsl(317deg, 100%, 54%);
+  font-size: 1.1rem;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: rgb(0, 0, 0);
+  border: hsl(317deg, 100%, 54%) 0.125em solid;
+  padding: 0.25em 1em;
+  border-radius: 0.25em;
+  position: relative;
+  text-shadow: 0em 0em 0.125em hsla(0deg, 0%, 100%, 0.4), 0em 0em 0.25em rgb(0, 0, 0);
+  box-shadow: inset 0em 0em 1em 0 hsl(317deg, 100%, 54%), 0em 0em 1em 0 hsl(317deg, 100%, 54%);
+  transition: background-color 100ms linear;
+}
+.neon-btn::before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  background: hsl(317deg, 100%, 54%);
+  top: 120%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: perspective(4em) rotateX(40deg) scale(1, 0.35);
+  filter: blur(1em);
+  opacity: 0.7em;
+}
+.neon-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0em 0em 2em 0.5em hsl(317deg, 100%, 54%);
+  opacity: 0;
+  transition: opacity 100ms linear;
+}
+.neon-btn:hover, .neon-btn:focus {
+  background: hsl(317deg, 100%, 54%);
+  color: hsl(323deg, 21%, 16%);
+  text-shadow: none;
+}
+.neon-btn:hover::before, .neon-btn:focus::before {
+  opacity: 1;
+}
+.neon-btn:hover::after, .neon-btn:focus::after {
+  opacity: 1;
+}
+
+input {
+  color: rgb(32, 0, 79);
+  font-size: 1.1rem;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: rgb(0, 255, 225);
+  border: rgb(0, 255, 225) 0.125em solid;
+  padding: 0.25em 1em;
+  border-radius: 0.25em;
+  position: relative;
+  text-shadow: 0em 0em 0.125em hsla(0deg, 0%, 100%, 0.4), 0em 0em 0.25em rgb(0, 255, 225);
+  box-shadow: inset 0em 0em 1em 0 rgb(5, 2, 52), 0em 0em 0.5em 0 rgb(0, 255, 225);
+  transition: background-color 100ms linear;
+}
+input::before {
+  content: "";
+  position: absolute;
+  background: rgb(0, 255, 225);
+  top: 120%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transform: perspective(4em) rotateX(40deg) scale(1, 0.35);
+  filter: blur(1em);
+  opacity: 0.4em;
+}
+input::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0em 0em 2em 0.5em rgb(0, 255, 225);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 100ms linear;
+}
+input[required]:invalid {
+  background-color: rgb(255, 23, 120);
+  border: rgb(255, 23, 120) 0.125em solid;
+  text-shadow: none;
+  box-shadow: inset 0em 0em 1em 0 rgb(5, 2, 52), 0em 0em 0.5em 0 rgb(255, 23, 120);
+}
+input[required]:invalid:hover, input[required]:invalid:focus {
+  box-shadow: inset 0em 0em 1em 0 rgb(5, 2, 52), 0em 0em 1em 0 rgb(255, 23, 120);
+}
+input:hover, input:focus {
+  background: rgb(0, 255, 225);
+  color: rgb(32, 0, 79);
+  text-shadow: none;
+  box-shadow: inset 0em 0em 1em 0 rgb(5, 2, 52), 0em 0em 1em 0 rgb(0, 255, 225);
+  opacity: 1;
+  transform: scale(1.02);
+}
+input:hover::before, input:focus::before {
+  opacity: 1;
+}
+input:hover::after, input:focus::after {
+  opacity: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .main__image-box {
+    background: none;
+  }
+  .main__form-box header {
+    background: url(../imgs/pinkandblue.jpg) center/cover no-repeat;
+  }
+}
+.main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+.main__image-box {
+  background: url(../imgs/pinkandblue.jpg) center/cover no-repeat;
+  height: 100vh;
+  width: 25vw;
+  position: relative;
+  overflow: none;
+  z-index: -1;
+}
+.main__image-box .overlay {
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.main__image-box .logo {
+  width: 100%;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  height: 33.3%;
+  width: 100%;
+}
+.main__form-box {
+  background: rgb(14, 32, 34);
+  height: 100vh;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-overflow: wrap;
+  position: relative;
+}
+.main__form-box header {
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  flex: 1;
+}
+.main__form-box header p.description {
+  width: 80%;
+  left: 2.5rem;
+  position: relative;
+  color: white;
+  font-size: 1.2rem;
+}
+.main__form-box main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.main__form-box main h3 {
+  color: white;
+  width: 70%;
+  text-align: left;
+  margin-left: 2.3rem;
+  margin-top: 1rem;
+  height: 5%;
+}
+.main__form-box main .form-div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 95%;
+  width: 70%;
+  overflow: none;
+}
+.main__form-box main .form-div .control:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.main__form-box main .form-div__fep, .main__form-box main .form-div__lpc {
+  display: flex;
+  flex-direction: column;
+}
+.main__form-box main .form-div__fep {
+  position: relative;
+  left: 5%;
+}
+.main__form-box main .form-div__lpc {
+  position: relative;
+  left: 10%;
+}
+.main__form-box main .form-div label {
+  color: white;
+  position: relative;
+}
+.main__form-box main .form-div label[for=pass]::after,
+.main__form-box main .form-div label[for=conf-pass]::after {
+  font-size: 0.8rem;
+  content: "Your passwords do not match; try again!";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  z-index: 1;
+  top: 3.5rem;
+  left: 0rem;
+  background: #470033;
+  opacity: 0;
+}
+.main__form-box main .form-div .control {
+  display: flex;
+  flex-direction: column;
+}
+.main__form-box main .form-div .control .required::before {
+  content: "*";
+  color: rgb(220, 133, 219);
+}
+.main__form-box footer {
+  background-color: rgb(0, 0, 0);
+  flex: 1;
+}
+.main__form-box footer button[type=submit] {
+  position: relative;
+  left: 2.5rem;
+  top: 2rem;
+}
+.main__form-box footer p {
+  position: relative;
+  top: 4.5rem;
+  left: 2.5rem;
+  color: white;
+}
+.main__form-box footer p a {
+  text-decoration: none;
+  color: rgb(0, 255, 225);
+  text-shadow: 0.05em 0.05em 0.05em hsl(317deg, 100%, 54%);
+}/*# sourceMappingURL=main.css.map */
